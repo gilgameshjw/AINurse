@@ -11,13 +11,8 @@
   (reagent/atom {}))
 
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Page
-
-;(defn page [ratom]
-;  [:div
-;   "Welcome to reagent-figwheel, ciao beatrice."])
 
 (defn atom-input [value]
   [:input {:type "text"
@@ -29,12 +24,12 @@
         val2 (reagent/atom "foot")]
     (fn []
       [:div
-       [:h3 "ECG"]
-       [:p "ECG value (NOR, VPBs, ISM, ISE): " @val1]
-       [:p "ECG class from classification: " [atom-input val1]]
-       [:h3 "EEG"]
-       [:p "EEG value (left hand, right hand, foot, tongue)" @val2]
-       [:p "EEG class from classification: " [atom-input val2]]])))
+       [:h3 {:style {:color "blue"}} "ECG"]
+       [:p {:style {:color "blue"}} "ECG value (NOR, VPBs, ISM, ISE): " @val1]
+       [:p {:style {:color "blue"}} "ECG class from classification: " [atom-input val1]]
+       [:h3 {:style {:color "violet"}} "EEG"]
+       [:p {:style {:color "violet"}} "EEG value (left hand, right hand, foot, tongue)" @val2]
+       [:p {:style {:color "violet"}} "EEG class from classification: " [atom-input val2]]])))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
