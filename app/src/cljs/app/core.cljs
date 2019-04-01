@@ -15,10 +15,26 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Page
 
-(defn page [ratom]
-  [:div
-   "Welcome to reagent-figwheel."])
+;(defn page [ratom]
+;  [:div
+;   "Welcome to reagent-figwheel, ciao beatrice."])
 
+(defn atom-input [value]
+  [:input {:type "text"
+           :value @value
+           :on-change #(reset! value (-> % .-target .-value))}])
+
+(defn page [ratom]
+  (let [val1 (reagent/atom "NOR")
+        val2 (reagent/atom "foot")]
+    (fn []
+      [:div
+       [:h3 "ECG"]
+       [:p "ECG value (NOR, VPBs, ISM, ISE): " @val1]
+       [:p "ECG class from classification: " [atom-input val1]]
+       [:h3 "EEG"]
+       [:p "EEG value (left hand, right hand, foot, tongue)" @val2]
+       [:p "EEG class from classification: " [atom-input val2]]])))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
